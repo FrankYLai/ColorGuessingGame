@@ -1,17 +1,46 @@
-var colors = ["black", "pink", "blue", "orange", "yellow"];
+var answerKey;
+var squares;
+var messageDisplay=document.querySelector('#message');
+function correct(obj){
+	messageDisplay.textContext='correct';
+	for(var i=0;i<squares.length;i++){
+		squares[i].style.backgroundColor=obj.style.backgroundColor;
+	}
+}
 
-setTimeout(function() {
-	var squares = document.querySelectorAll(".square")
-	var answerSquare=Math.floor(Math.random()*squares.length);
+function wrongChoice(block){
+	console.log(block.style.backgroundColor);
+	messageDisplay.textContent='Try Again';
+	block.style.backgroundColor='#232323';
+}
+
+
+function initGame() {
+	squares = document.querySelectorAll(".square")
+	answerSquare=Math.floor(Math.random()*squares.length);
 	for (var i=0;i<squares.length;i++){
-		var randR=Math.floor(Math.random()*255);
-		var randG=Math.floor(Math.random()*255);
-		var randB=Math.floor(Math.random()*255);
-		color='#'+randR.toString(16)+randG.toString(16)+randB.toString(16);
+		//generate and format random colors
+		var randR=Math.floor(Math.random()*254);
+		var randG=Math.floor(Math.random()*254);
+		var randB=Math.floor(Math.random()*254);
+		//color='#'+randR.toString(16)+randG.toString(16)+randB.toString(16);
+		color='rgb('+randR.toString()+', '+randG.toString()+', '+randB.toString()+')';
+		//
 		if (i==answerSquare){
 			document.querySelector("#title").textContent=randR.toString()+','+randG.toString()+','+randB.toString();
+			answerKey=color;
 		}
-		alert(color)
-		squares[i].style.background=color;
+		squares[i].style.backgroundColor=color;
+		squares[i].addEventListener('click', function(){
+			console.log(answerKey);
+			if (this.style.backgroundColor==answerKey){
+				correct(this);
+			}
+			else{
+				wrongChoice(this);
+			}
+		});
 	}
-},1000);
+}
+
+setTimeout(initGame(),50000);
