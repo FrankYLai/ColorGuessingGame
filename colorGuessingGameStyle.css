@@ -1,5 +1,7 @@
 body {
 	background-color : #232323;	
+	margin:0;
+	font-family:'Nunito Sans','sans-serif';
 }
 
 .square {
@@ -17,4 +19,48 @@ body {
 
 #title{
 	color:white;
+	text-align:center;
+	margin:0;
+	line-height:1.1;
+	padding:20px 0;
+	background-color:#ffd54f;
+	text-transform: uppercase;
+	font-size: 250%
+}
+#stripe{
+	background-color: #C2C0BF;
+	text-align:center;
+	height:30px;
+	color:black;
+}
+
+.disabled{
+	color:white;
+	background-color:#DBDBDB;
+}
+
+.enabled{
+	background-color:grey;
+}
+
+button{
+	border: none;
+	background:none;
+	text-transform: uppercase;
+	height:100%;
+	font-weight: 700;
+	color:white ;
+}
+
+button:hover{
+	color:#ffd54f;
+}
+
+#message{
+	font-family: 'Anton', sans-serif;
+}
+
+#message{
+	display: inline-block;
+	width:20%;
 }

@@ -4,19 +4,27 @@
 	<meta charset="UTF-8">
 	<title>ColorGame</title>
 	<link rel="stylesheet" type="text/css" href="colorGuessingGameStyle.css">
+	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
-<h1 id="title">Color guessing game</h1>
+<div id="titleBar">	
+<h1 id="title">
+	guess the color:
+	<br>
+	<span id='colorClue'></span>
+	<br>
+	Score: <span id='score'></span>
+</h1>
 
-<div>
-	<span id="message"></span>
+</div>
+<div id='stripe'>
+	<button class='stripecontent' id='reset' class='disabled'>Next Level</button>
+	<span class='stripecontent' id="message"></span>
+	<span class='stripcontent' id='levelLine'>Level: <span id='level'></span></span>
 </div>
 
 	<div id="container">
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
-		<div class="square"></div>
 		<div class="square"></div>
 		<div class="square"></div>
 	</div>
